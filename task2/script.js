@@ -31,10 +31,23 @@ async function searchBook(e) {
       '</section>');
     }
   } else{
-    insert.insertAdjacentHTML("beforeend", '<p class="searchfail">No search results.</p>');
+    insert.insertAdjacentHTML("beforeend", '<p class="card searchfail">No search results.</p>');
   };
   
 }
 
+function clearFields(e){
+  e.preventDefault();
+  const field = document.querySelectorAll(".card");
+  for (let i = 0; i < field.length; i++) {
+    field[i].remove();
+  }
+}
+
+async function search(e){
+  clearFields(e);
+  searchBook(e);
+}
+
 const btn = document.querySelector("button");
-btn.addEventListener("click", searchBook);
+btn.addEventListener("click", search);
