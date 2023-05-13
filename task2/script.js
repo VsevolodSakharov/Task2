@@ -11,8 +11,6 @@ async function searchBook(e) {
   const response = await fetch(`${URL}${fromInput.value}+${fromSelect.value}&${fields}&:keyes&key=${KEY}`);
   var result = await response.json();
   var counter = Object.keys(result.items).length;
-    
-  console.log(result);
   }
   catch{err => console.log(err)};
 
